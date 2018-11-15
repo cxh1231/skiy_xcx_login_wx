@@ -52,7 +52,7 @@ App({
   },
   globalData: {
     userInfo: null,
-    siteUrl: 'https://www.gxvtc.com',
+    siteUrl: 'https://www.siteurl.com',
     openidUrl: '/?xcx_login-openid.htm',
     openid: '',
   }
