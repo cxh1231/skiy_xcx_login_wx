@@ -4,5 +4,4 @@
 logs/
 
 _project.config.json
-_app.json
-_app.js
+__project.config.json
