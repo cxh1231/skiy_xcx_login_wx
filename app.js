@@ -12,7 +12,7 @@ App({
         // 发送 res.code 到后台换取 openId, sessionKey, unionId
 
         wx.request({
-          url: this.globalData.openidUrl,
+          url: this.globalData.siteUrl + this.globalData.openidUrl,
           method: "POST",
           data: {
             code: res.code,
@@ -52,10 +52,8 @@ App({
   },
   globalData: {
     userInfo: null,
-    openidUrl: 'https://www.yoursite.com?xcx_login-openid.htm',
-    bindUrl: 'https://www.yoursite.com?xcx_login-bind-scan_qrcode.htm',
-    loginUrl: 'https://www.yoursite.com?xcx_login-scan-scan_qrcode.htm',
-    checkBindUrl: 'https://www.yoursite.com?xcx_login-bind-check.htm',
+    siteUrl: 'https://www.siteurl.com',
+    openidUrl: '/?xcx_login-openid.htm',
     openid: '',
   }
 })

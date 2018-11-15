@@ -11,12 +11,7 @@ Page({
     canIUse: wx.canIUse('button.open-type.getUserInfo'),
     scanLabel: '扫码登录/绑定',
   },
-  //事件处理函数
-  bindViewTap: function() {
-    wx.navigateTo({
-      url: '../logs/logs'
-    })
-  },
+
   onLoad: function() {
     if (app.globalData.userInfo) {
       this.setData({
@@ -48,7 +43,7 @@ Page({
     //功能无效
     if (app.globalData.openid) {
       wx.request({
-        url: app.globalData.checkBindUrl,
+        url: app.globalData.siteUrl + '/?xcx_login-bind-check.htm',
         method: "POST",
         data: {
           openid: app.globalData.openid
@@ -83,7 +78,7 @@ Page({
           // 发送 res.code 到后台换取 openId, sessionKey, unionId
 
           wx.request({
-            url: app.globalData.openidUrl,
+            url: app.globalData.siteUrl + app.globalData.openidUrl,
             method: "POST",
             data: {
               code: res.code,
@@ -120,14 +115,14 @@ Page({
         if (obj.type == 'bind' || obj.type == 'login') {
           let [url,title] = ['', ''];
           if (obj.type == 'bind') {
-            url = app.globalData.bindUrl
+            url = '/?xcx_login-bind-scan_qrcode.htm'
             title = '绑定失败'
           } else {
-            url = app.globalData.loginUrl
+            url = '/?xcx_login-scan-scan_qrcode.htm'
             title = '登录失败'
           }
           wx.request({
-            url: url,
+            url: app.globalData.siteUrl + url,
             method: "POST",
             data: {
               qrcode: obj.qrcode,
