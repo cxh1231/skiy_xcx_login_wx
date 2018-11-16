@@ -52,7 +52,7 @@ Page({
           "Content-Type": "application/x-www-form-urlencoded"
         },
         success: (res) => {
-          console.log(res)
+          // console.log(res)
           if (res.data.code == 1) {
             this.data.scanLabel = '扫码登录'
           } else if (res.data.code == 2) {
@@ -107,7 +107,7 @@ Page({
     wx.scanCode({
       onlyFromCamera: true,
       success(res) {
-        console.log(utils.Base64.decode(res.result))
+        // console.log(utils.Base64.decode(res.result))
         let str = utils.Base64.decode(res.result)
         let obj = JSON.parse(str)
         let openid = app.globalData.openid
@@ -132,13 +132,13 @@ Page({
               "Content-Type": "application/x-www-form-urlencoded"
             },
             success: function(res) {
-              console.log(res);
+              // console.log(res);
               wx.navigateBack({
                 delta: 1 //小程序关闭当前页面返回上一页面
               })
 
               let icon = 'cancel'
-              console.log(res.data.message)
+              // console.log(res.data.message)
               if (res.data.code == 0) {
                 icon = 'success'
                 title = (obj.type == 'bind') ? '绑定成功' : '登录成功'
