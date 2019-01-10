@@ -8,12 +8,16 @@
     "es6": true,
     "postcss": true,
     "minified": true,
-    "newFeature": true
+    "newFeature": true,
+    "autoAudits": false
   },
   "compileType": "miniprogram",
   "libVersion": "9.9.9",
   "appid": "xCxAppId",
   "projectname": "YOUR_PROJECT_NAME",
+  "debugOptions": {
+    "hidedInDevtools": []
+  },  
   "isGameTourist": false,
   "condition": {
     "search": {
